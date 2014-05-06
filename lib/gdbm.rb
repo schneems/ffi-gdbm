@@ -21,8 +21,8 @@ end
 
 module GDBM_FFI
   extend FFI::Library
-  if File.exist?("/usr/lib32/libgdbm.so")
-    ffi_lib "/usr/lib32/libgdbm.so"
+  if File.exist?("/usr/lib/libgdbm.so.3")
+    ffi_lib "/usr/lib/libgdbm.so.3"
   else
     ffi_lib "gdbm"
   end
