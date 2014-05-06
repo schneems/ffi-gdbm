@@ -21,7 +21,11 @@ end
 
 module GDBM_FFI
   extend FFI::Library
-  ffi_lib "gdbm"
+  if File.exist?("/usr/lib32/libgdbm.so")
+    ffi_lib "/usr/lib32/libgdbm.so"
+  else
+    ffi_lib "gdbm"
+  end
 
   #Note that MRI does not store the null byte, so neither does this version,
   #even though FFI automatically appends one to the String.
